@@ -10,7 +10,7 @@ export  const POST = async ( req:Request,{params}:{params:{storeId:string}})=>{
        const body = await req.json();
        const { label,imageUrl }=   body;
        if(!userId){
-        return new NextResponse('un Authorised ',{status:401});
+        return new NextResponse('un Authendicated ',{status:401});
        }
        if(!label){
         return new NextResponse('label is required ',{status:403});
@@ -53,12 +53,12 @@ export async function GET(req:Request,
             if(!params.storeId){
                 return new NextResponse('Store id is required',{status:400})
             }
-            const billboard = await prismadb.billboard.findMany({
+            const billboards = await prismadb.billboard.findMany({
                 where:{
                     id:params.storeId
                 }
             })
-            return NextResponse.json(billboard)
+            return NextResponse.json(billboards)
             
         } catch (error) {
             console.log(' Billboard -GET',error);

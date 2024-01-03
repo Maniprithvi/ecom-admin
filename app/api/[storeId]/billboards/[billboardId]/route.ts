@@ -22,7 +22,8 @@ export async function GET (req:Request,
         }
     }
     
- export async function DELETE(req:Request,
+ export async function DELETE(
+    req:Request,
     {params}:{params:{billboardId:string,storeId:string}}) {
     
         try {
@@ -43,7 +44,7 @@ export async function GET (req:Request,
  if(!storeByUserId){
    return new NextResponse('un authorized',{status:403})
  }
- const billboard = await prismadb.billboard.delete({
+ const billboard = await prismadb.billboard.deleteMany({
     where:{
         id:params.billboardId
     }
@@ -55,7 +56,10 @@ export async function GET (req:Request,
         }
  }   
 
- export async function  PATCH(req:Request,{params}:{params:{storeId:string,billboardId:string}}) {
+ export async function  PATCH(
+    req:Request,
+    {params}:{params:{storeId:string,billboardId:string}}
+    ) {
     
     try {
         const {userId} =auth();
@@ -83,7 +87,7 @@ export async function GET (req:Request,
         if(!storeByUserId){
             return new NextResponse('un authorized',{status:403})
         }
-        const billboard = await prismadb.billboard.update({
+        const billboard = await prismadb.billboard.updateMany({
             where:{
                 id:params.billboardId
             },

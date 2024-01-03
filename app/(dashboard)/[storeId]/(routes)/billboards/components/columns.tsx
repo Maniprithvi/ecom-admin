@@ -4,9 +4,11 @@ import { ColumnDef } from '@tanstack/react-table'
 import { CellAction } from './cell-action'
 
 export type BillboardColumn ={
+    
     id :string
     label: string,
-    createdAt :any
+    createdAt :string
+    
 }
 
 export const columns:ColumnDef<BillboardColumn>[]=[

@@ -13,6 +13,8 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Dashboard',
   description: 'E-Commerce Dashboard',
+  equiv:"Content-Security-Policy",
+  content:"default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"
 }
 
 export default async function RootLayout({
@@ -32,6 +34,7 @@ export default async function RootLayout({
       }
     }}>
       <html lang="en">
+      
         <body className={inter.className}>
           <ToastProvider />
         <ModelProvider />

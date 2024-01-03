@@ -8,26 +8,27 @@ import { Badge,BadgeProps } from '@/components/ui//badge';
 import { Button } from "@/components/ui/button";
 
 
-interface ApiAleartProps{
-    title:string;
-    description:string;
-    variant:'public'|'admin'
-};
+interface ApiAlertProps {
+    title: string;
+    description: string;
+    variant: 'public' | 'admin',
+  };
+  
+  
+  const textMap: Record<ApiAlertProps["variant"], string> = {
+    public: 'Public',
+    admin: 'Admin'
+  };
+  
+  const variantMap: Record<ApiAlertProps["variant"], BadgeProps["variant"]> = {
+    public: 'secondary',
+    admin: 'destructive'
+  };
 
-
-const textMap:Record<ApiAleartProps['variant'],string>={
-    public:'Public',
-    admin:'Admin'
-}
-const variantMap:Record<ApiAleartProps['variant'],BadgeProps['variant']>={
-    public:'secondary',
-    admin:'destructive'
-}
-
-export const AlertApi:React.FC<ApiAleartProps>=({
+export const AlertApi:React.FC<ApiAlertProps>=({
     title,description,variant='public'})=>{ 
   
-        const copy =(description:string)=>{
+        const onCopy =(description:string)=>{
        navigator.clipboard.writeText(description);
        toast.success('Api route copied to ClipBoard')
         }
@@ -42,11 +43,10 @@ return(
             </Badge>
         </AlertTitle>
         <AlertDescription className="mt-4 flex items-center justify-between" >
-            <Code className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'>
-   
-                   {description}
-                   </Code>
-                   <Button variant='outline' size='icon'onClick={()=>{}} >
+            <code className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'>
+   {description}
+                   </code>
+                   <Button variant='outline' size='icon'onClick={()=>{onCopy(description)}} >
                     <Copy  className="w-4 h-4"/>
                    </Button>
         </AlertDescription>

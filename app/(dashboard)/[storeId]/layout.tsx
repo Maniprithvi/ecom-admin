@@ -19,12 +19,12 @@ const {userId} = auth();
 if(!userId){
     redirect('/sign-in');
 }
-const store = await prismadb.store.findFirstOrThrow({
+const store = await prismadb.store.findFirst({
     where:{
         id:params.storeId,
         userId
     }
-}).catch((e)=>console.log(e.message,'store not found'))
+})
 
 if(!store){
     redirect('/');

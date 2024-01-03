@@ -126,7 +126,7 @@ export const SettingForm:React.FC <SettingsFormProps> = (
     </form>
     </Form>
     <Separator/>
-    <AlertApi title='test' description={`${origin}/api/${params.storeId}`} variant='public' />
+    <AlertApi title='NEXT PUBLIC API URL' description={`${origin}/api/${params.storeId}`} variant='public' />
 
     </>
   )

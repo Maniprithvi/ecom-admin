@@ -33,6 +33,9 @@ export async function PATCH(req:Request,{params}:{params:{storeId:string,colorId
     if(!params.storeId){
         return new NextResponse('store id is required..',{status:403})
     }
+    if(!params.colorId){
+        return new NextResponse('color id is required..',{status:403})
+    }
     const storeByUserId = await prismadb.store.findFirst({
         where:{
             id:params.storeId,
@@ -67,7 +70,10 @@ export async function DELETE(req:Request,{params}:{params:{storeId:string,colorI
             }
         })
       if(!storeByUserId) return new NextResponse('un authorized usage',{status:405})
-      
+      if(!params.colorId){
+        return new NextResponse('color id is required..',{status:403})
+    }
+
       const color = await prismadb.color.delete({
         where:{
             id:params.colorId

@@ -8,7 +8,7 @@ import { useParams, useRouter } from "next/navigation"
 
 import { BillboardColumn } from "./columns"
 import { AlertModel } from "@/components/models/alert-model"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { MoreHorizontal, Trash,Copy,Edit } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -39,7 +39,7 @@ export const CellAction:React.FC<CellActionProps>=({data})=>{
 
     const onCopy=(id:string)=>{
         navigator.clipboard.writeText(id);
-      toast.success('Billboard Id Copied clipBoard.')
+      toast.success('Billboard Id Copied to the  clipBoard.')
     }
 
     return(
@@ -60,16 +60,14 @@ export const CellAction:React.FC<CellActionProps>=({data})=>{
         <DropdownMenuContent align="end">
          <DropdownMenuLabel>Actions</DropdownMenuLabel>
          <DropdownMenuItem onClick={()=> onCopy(data.id)}>
-            Copy Id
-            <Copy  className='mr-2 h-4 w-4'/>
+            <Copy  className='mr-2 h-4 w-4'/>Copy Id
          </DropdownMenuItem>
          <DropdownMenuItem onClick={()=> router.push(`/${params.storeId}/billboard/${data.id}`)}>
-            Edit
-            <Edit  className='mr-2 h-4 w-4'/>
+            <Edit  className='mr-2 h-4 w-4'/>Update
          </DropdownMenuItem>
          <DropdownMenuItem onClick={()=> setOpen(true) }>
-            Delete
             <Trash  className='mr-2 h-4 w-4'/>
+            Delete
          </DropdownMenuItem>
 
         </DropdownMenuContent>
