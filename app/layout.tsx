@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ModelProvider } from '@/providers/model-provider'
 import { ToastProvider } from '@/providers/toast-provider'
+import { ThemeProvider } from '@/providers/themeProvider'
 
 
 
@@ -36,12 +37,11 @@ export default async function RootLayout({
       <html lang="en">
       
         <body className={inter.className}>
+          <ThemeProvider attribute='class' defaultTheme='dark' enableSystem >
           <ToastProvider />
         <ModelProvider />
-        {children}
-   
-         
-      
+        {children} 
+        </ThemeProvider>
         </body>
       </html>
     </ClerkProvider>

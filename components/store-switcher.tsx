@@ -31,7 +31,7 @@ const StoreSwitch = (
     const storeModel = useStoreModel();
     const params = useParams();
     const router = useRouter();
-    const [open ,setOpen] = useState(true)
+    const [open ,setOpen] = useState(false)
 
     const formattedItems= items.map((item)=>({
         label:item.name,
