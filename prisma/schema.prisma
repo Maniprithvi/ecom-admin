@@ -18,6 +18,7 @@ model Store {
   sizes       Size[]      @relation("StoreToSize")
   colors      Color[]     @relation("StoreToColor")
   orders      Order[]     @relation("StoreToOrder")
+  Payment     Payment[]   @relation("StoreToPayment")
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
 }
@@ -135,4 +136,14 @@ model Image {
   updatedAt DateTime @updatedAt
 
   @@index([productId])
+}
+
+model Payment {
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  storeId   String    // Foreign Key to Store
+  store     Store     @relation("StoreToPayment", fields: [storeId], references: [id])
+  razerPayKey  String // Razerpay key from RAzerpay portal
+  razerpaySecret String // Razerpay secret from RAzerpay portal
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

@@ -25,6 +25,11 @@ const SettingsPage : React.FC<SettingsPageProps> = async({
 
         }
      })
+    //  const payment = await  prismadb.payment.findUnique({
+    //     where:{
+    //         id : params.storeId
+    //     }
+    //  })
  if(!store){
     redirect('/')
  }

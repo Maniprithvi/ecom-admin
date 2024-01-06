@@ -65,8 +65,9 @@ export const SettingForm:React.FC <SettingsFormProps> = (
     try {
       setLoading(true)
       await axios.delete(`/api/stores/${params.storeId}`);
-      Router.refresh()
+
       Router.push('/')
+      Router.refresh()
       toast.success('Store deleted...')
     } catch (error) {
        toast.error('make sure  you removed all products and categories first..')

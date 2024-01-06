@@ -66,8 +66,9 @@ export const SizeForm:React.FC <sizeFormProps> = (
   else{
   await axios.post(`/api/${params.storeId}/sizes`,data)
   }
-  Router.refresh();
+
   Router.push(`/api/${params.storeId}/sizes`)
+  Router.refresh();
  
   toast.success(toastMessgase)
  } catch (error) {
@@ -81,8 +82,9 @@ export const SizeForm:React.FC <sizeFormProps> = (
     try {
       setLoading(true)
       await axios.delete(`/api/${params.storeId}/sizes/${params.sizeId}`);
-      Router.refresh()
+    
       Router.push(`/${params.storeId}/sizes`)
+      Router.refresh();
       toast.success('size deleted...')
     } catch (error) {
        toast.error('make sure  you removed all products and categories first..')

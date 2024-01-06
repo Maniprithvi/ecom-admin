@@ -69,9 +69,9 @@ export const CategoryForm:React.FC <CategoryFormProps> = (
   else{
   await axios.post(`/api/${params.storeId}/categories`,data)
   }
-  Router.refresh();
+
   Router.push(`/api/${params.storeId}/categories`)
- 
+  Router.refresh();
   toast.success(toastMessgase)
  } catch (error) {
   toast.error('Something went wrong..!')
@@ -84,8 +84,9 @@ export const CategoryForm:React.FC <CategoryFormProps> = (
     try {
       setLoading(true)
       await axios.delete(`/api/${params.storeId}/categories/${params.categoryId}`);
-      Router.refresh()
+
       Router.push(`/${params.storeId}/categories`)
+      Router.refresh()
       toast.success('Category deleted...')
     } catch (error) {
        toast.error('make sure  you removed all products and category first..')

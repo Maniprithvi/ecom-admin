@@ -5,7 +5,7 @@ import { stripe } from "@/lib/stripe";
 import prismdab from '@/lib/prismadb'
 
 const corsHeader ={
-    "Access-Control-Allow-Origin":"*",
+    "Access-Control-Allow-Origin" :"*",
     "Access-Control-Allow-Methods":"GET,POST,PUT,DELETE,OPTIONS",
     "Access-Control-Allow-Headers":"Content-Type,Authorization"
 
@@ -18,7 +18,7 @@ export async function  POST(req:Request,
     {params}:{params:{storeId:string}}) {
     
         const {productIds}=await req.json();
-         if(!productIds || productIds.length ===0){
+         if(!productIds || productIds.length === 0){
             return new NextResponse('Products ids are required',{status:400})
          }
          const products  = await prismdab.product.findMany({
