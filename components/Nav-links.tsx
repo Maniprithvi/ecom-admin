@@ -57,12 +57,12 @@ return(
 
 
 
-<div className="flex lg:flex-row sm:flex-col space-x-4 lg:space-x-6">
+<div className="flex lg:flex-row flex-col space-x-4 lg:space-x-6">
   { routes.map((route)=>(
     <Link
     key={route.href}
     href={route.href}
-   className={cn(' block mt-4 lg:inline-block lg:mt-0 mr-10  text-sm font-medium transition-colors hover:text-primary md:block sm:space-y-3',route.active? "text-black dark:text-white" : " text-gray-500")}
+   className={cn('sm:block block mt-4 lg:inline-block lg:mt-0 mr-10  text-sm font-medium transition-colors hover:text-primary md:block sm:space-y-3',route.active? "text-black dark:text-white" : " text-gray-500")}
     >
     {route.label}
     </Link>

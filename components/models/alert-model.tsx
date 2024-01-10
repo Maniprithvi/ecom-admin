@@ -31,7 +31,7 @@ export const AlertModel:React.FC<AlearModelProps> =({
  return(
     <Model
     title="Are  you sure ?"
-    description='This action cannot be undone '
+    description="this action can't be change"
     isOpen={isOpen}
     onClose={onClose}
     >

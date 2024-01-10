@@ -34,16 +34,16 @@ export const AlertApi:React.FC<ApiAlertProps>=({
         }
 
 return(
-    <Alert>
+    <Alert className="overflow-hidden">
         <Server className="h-4 w-4"/>
-        <AlertTitle className="flex items-center gap-x-2">
+        <AlertTitle className="flex items-center md:justify-between  gap-x-2 md:gap-x-0">
             {title}
             <Badge variant={variantMap[variant]} >
 {textMap[variant]}
             </Badge>
         </AlertTitle>
-        <AlertDescription className="mt-4 flex items-center justify-between " >
-            <code className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold break-words sm:overflow-hidden sm:px-[7px] sm:py-[7px] sm:text-xs'>
+        <AlertDescription className="mt-4 flex items-center justify-between gap-2" >
+            <code className='relative rounded bg-muted  lg:px-[0.3rem] lg:py-[0.2rem] font-mono lg:text-sm font-semibold break-words sm:overflow-hidden px-[7px] py-[7px] text-xs'>
    {description}
                    </code>
                    <Button variant='outline' size='icon'onClick={()=>{onCopy(description)}} >
