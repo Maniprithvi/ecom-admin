@@ -42,8 +42,8 @@ return(
 {textMap[variant]}
             </Badge>
         </AlertTitle>
-        <AlertDescription className="mt-4 flex items-center justify-between" >
-            <code className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold'>
+        <AlertDescription className="mt-4 flex items-center justify-between " >
+            <code className='relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold break-words sm:overflow-hidden sm:px-[7px] sm:py-[7px] sm:text-xs'>
    {description}
                    </code>
                    <Button variant='outline' size='icon'onClick={()=>{onCopy(description)}} >

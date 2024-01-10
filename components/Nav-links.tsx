@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useParams,usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-export function MainNav ({
+export function Navlink ({
     className,
     ...props
 
@@ -47,7 +47,7 @@ export function MainNav ({
   label:"Orders",
   active:pathName === `/${params.storeId}/orders`,
 },
-      {
+   {
         href:`/${params.storeId}/settings`,
         label:"Settings",
         active:pathName === `/${params.storeId}/settings`,
@@ -57,19 +57,19 @@ return(
 
 
 
-<nav className={cn('flex items-center space-x-4 lg:space-x-6',className)}>
+<div className="flex lg:flex-row sm:flex-col space-x-4 lg:space-x-6">
   { routes.map((route)=>(
     <Link
     key={route.href}
     href={route.href}
-    className={cn('text-sm font-medium transition-colors hover:text-primary',route.active? "text-black dark:text-white" : " text-gray-500")}
+   className={cn(' block mt-4 lg:inline-block lg:mt-0 mr-10  text-sm font-medium transition-colors hover:text-primary md:block sm:space-y-3',route.active? "text-black dark:text-white" : " text-gray-500")}
     >
     {route.label}
     </Link>
   ))}
 
 
-</nav>
+</div>
   
 )
 }
