@@ -25,7 +25,7 @@ const formSchema = z.object({
 })
 
 interface SettingsFormProps{
-  intialData : Store
+  intialData : Store | undefined
 }
 
 type SettingsFormValues = z.infer<typeof formSchema>;
@@ -43,7 +43,7 @@ export const SettingForm:React.FC <SettingsFormProps> = (
 
     const form = useForm<SettingsFormValues>({
     resolver:zodResolver(formSchema),
-    defaultValues:intialData
+    defaultValues:intialData 
  })
 
  const onsubmit = async(data:SettingsFormValues)=>{
@@ -132,5 +132,3 @@ export const SettingForm:React.FC <SettingsFormProps> = (
     </>
   )
 }
-
-// export default  SettingForm
